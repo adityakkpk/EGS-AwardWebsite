@@ -2,20 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    @apply bg-royal-50;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .btn-royal {
+    @apply px-4 py-2 bg-royal-400 text-white rounded-md
+           transition-all duration-300 ease-in-out
+           hover:bg-royal-500 hover:shadow-lg
+           active:transform active:scale-95;
+  }
+
+  .card-royal {
+    @apply bg-white p-6 rounded-lg shadow-lg
+           transition-all duration-300 ease-in-out
+           hover:shadow-xl hover:scale-105
+           border-2 border-royal-200
+           hover:border-royal-400;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
 }
