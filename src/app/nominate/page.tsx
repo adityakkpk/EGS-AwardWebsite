@@ -5,6 +5,7 @@ import Head from "next/head";
 import { useState } from "react";
 
 export default function Nominate() {
+
   const [formData, setFormData] = useState({
     fullName: "",
     designation: "",
@@ -17,8 +18,8 @@ export default function Nominate() {
     achievements: "",
     contributions: "",
     awards: "",
-    supportingDocs: "",
   });
+  const [supportingDoc, setSupportingDoc] = useState<File | null>(null);
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -31,39 +32,31 @@ export default function Nominate() {
 
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
-      const file = e.target.files[0];
-      const base64 = await convertToBase64(file);
-      setFormData((prevState) => ({
-        ...prevState,
-        supportingDocs: base64 as string,
-      }));
+      if (e.target.files && e.target.files[0]) {
+        setSupportingDoc(e.target.files[0]);
+      }
     }
-  };
-
-  const convertToBase64 = (
-    file: File
-  ): Promise<string | ArrayBuffer | null> => {
-    return new Promise((resolve, reject) => {
-      const fileReader = new FileReader();
-      fileReader.readAsDataURL(file);
-      fileReader.onload = () => {
-        resolve(fileReader.result);
-      };
-      fileReader.onerror = (error) => {
-        reject(error);
-      };
-    });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
+      const formInputData = new FormData();
+      console.log(formData);
+      
+      // Append all form fields
+      Object.entries(formData).forEach(([key, value]) => {
+        formInputData.append(key, value);
+      });
+
+      // Append file if it exists
+      if (supportingDoc) {
+        formInputData.append("supportingDocs", supportingDoc);
+      }
+
       const response = await fetch("/api/submit-nomination", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
+        body: formInputData,
       });
 
       if (response.ok) {
@@ -80,7 +73,6 @@ export default function Nominate() {
           achievements: "",
           contributions: "",
           awards: "",
-          supportingDocs: "",
         });
       } else {
         throw new Error("Failed to submit nomination");
@@ -108,7 +100,11 @@ export default function Nominate() {
         <h1 className="text-3xl font-bold mb-10 text-center text-[#4169E1]">
           Nomination Form
         </h1>
-        <form onSubmit={handleSubmit} className="mx-auto">
+        <form
+          onSubmit={handleSubmit}
+          className="mx-auto"
+          encType="multipart/form-data"
+        >
           <div className="mb-4">
             <label
               htmlFor="fullName"
@@ -353,6 +349,7 @@ export default function Nominate() {
               id="supportingDocs"
               name="supportingDocs"
               onChange={handleFileChange}
+              accept=".pdf,.doc,.docx"
               className="w-full p-3 border-2 border-blue-100 rounded-lg focus:ring-2 
                          focus:ring-[#4169E1] focus:border-transparent outline-none
                          transition-all duration-300"
