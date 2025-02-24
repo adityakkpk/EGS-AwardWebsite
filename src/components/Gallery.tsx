@@ -1,25 +1,25 @@
-
 import Image from "next/image"
 
 const galleryItems = [
-  { id: 1, src: "/placeholder.png", alt: "Award Ceremony 2024", caption: "Award Ceremony 2024" },
+  { id: 1, src: "/award.jpg", alt: "Award Ceremony 2024", caption: "Award Ceremony 2024" },
   {
     id: 2,
-    src: "/placeholder.png",
+    src: "/img3.jpg",
     alt: "Winner - Excellence in Business Innovation",
     caption: "Winner - Excellence in Business Innovation",
   },
-  { id: 3, src: "/placeholder.png", alt: "Networking Event", caption: "Networking Event" },
-  { id: 4, src: "/placeholder.png", alt: "Keynote Speaker", caption: "Keynote Speaker" },
-  { id: 5, src: "/placeholder.png", alt: "Award Trophy", caption: "Award Trophy" },
-  { id: 6, src: "/placeholder.png", alt: "Panel Discussion", caption: "Panel Discussion" },
+  { id: 3, src: "/img5.jpg", alt: "Networking Event", caption: "Networking Event" },
+  { id: 4, src: "/img4.jpg", alt: "Keynote Speaker", caption: "Keynote Speaker" },
+  { id: 5, src: "/img2.jpg", alt: "Award Trophy", caption: "Award Trophy" },
+  { id: 6, src: "/img1.jpg", alt: "Panel Discussion", caption: "Panel Discussion" },
 ]
 
 export default function Gallery() {
   return (
-    <section className="pt-10 bg-gradient-to-b from-blue-50/50 to-white max-w-screen-xl mx-auto" id="gallery">
-      <div className="container mx-auto px-4 py-12">
-        <h1 className="text-3xl font-bold mb-10 text-center text-[#4169E1] animate-fade-in">
+    <section className="pt-10 bg-gradient-to-b from-[#2f2607]/5 to-white mx-auto" id="gallery">
+      <div className="max-w-screen-xl mx-auto px-4 py-12">
+        <h1 className="text-4xl md:text-5xl font-bold mb-10 text-center text-[#2f2607] 
+                     animate-fade-in hover:scale-105 transition-transform duration-300">
           Gallery
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -27,13 +27,15 @@ export default function Gallery() {
             <div 
               key={item.id} 
               className="group bg-white rounded-xl shadow-lg overflow-hidden
-                         transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-slate-500 transition-all duration-500
+                         transform hover:-translate-y-2 hover:shadow-2xl 
+                         hover:shadow-[#2f2607]/20 transition-all duration-500
+                         border-2 border-[#2f2607]/10 hover:border-[#2f2607]/30
                          animate-fade-in"
               style={{ animationDelay: `${item.id * 100}ms` }}
             >
               <div className="relative overflow-hidden">
                 <Image
-                  src={item.src || "/placeholder.svg"}
+                  src={item.src || "/placeholder.png"}
                   alt={item.alt}
                   width={400}
                   height={300}
@@ -41,7 +43,7 @@ export default function Gallery() {
                            transition-transform duration-500"
                 />
               </div>
-              <p className="p-4 text-center text-gray-700 font-medium">{item.caption}</p>
+              <p className="p-4 text-center text-[#2f2607]/80 font-medium">{item.caption}</p>
             </div>
           ))}
         </div>

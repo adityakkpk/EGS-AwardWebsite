@@ -40,32 +40,32 @@ export default function FAQ() {
 
   return (
     <section
-      className="pt-10 bg-gradient-to-b from-blue-50/50 to-white"
+      className="pt-10 bg-gradient-to-b from-[#2f3070]/2 to-neutral-100"
       id="faq"
     >
       <div className="container mx-auto px-4 py-12 max-w-3xl">
-        <h1 className="text-3xl font-bold mb-10 text-center text-[#4169E1] animate-fade-in">
+        <h1 className="text-3xl font-bold mb-10 text-center text-[#2f2607] animate-fade-in">
           Frequently Asked Questions
         </h1>
         <div className="space-y-4">
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="border-2 border-blue-100 rounded-xl overflow-hidden
+              className="border-2 border-[#2f2607]/20 rounded-xl overflow-hidden
                          shadow-sm hover:shadow-md transition-all duration-300
                          animate-fade-in"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <button
                 className="flex justify-between items-center w-full p-6 text-left
-                           bg-white hover:bg-blue-50 transition-colors duration-300"
+                           bg-white hover:bg-[#2f2607]/5 transition-colors duration-300"
                 onClick={() => toggleFAQ(index)}
               >
-                <span className="font-semibold text-[#4169E1]">
+                <span className="font-semibold text-[#2f2607]">
                   {faq.question}
                 </span>
                 <span
-                  className="text-[#4169E1] transition-transform duration-300
+                  className="text-[#2f2607] transition-transform duration-300
                                transform"
                 >
                   {openIndex === index ? (
@@ -84,7 +84,7 @@ export default function FAQ() {
                            }`}
               >
                 <div className="overflow-hidden">
-                  <p className="p-6 bg-white text-gray-600 leading-relaxed">
+                  <p className="p-6 bg-white text-[#241c07]/70 leading-relaxed">
                     {faq.answer}
                   </p>
                 </div>

@@ -25,6 +25,15 @@
   }
 }
 
+:root {
+  --font-arsenal: var(--font-arsenal);
+}
+
+/* Then you can use it in your Tailwind classes like this: */
+.font-arsenal {
+  font-family: var(--font-arsenal);
+}
+
 html {
   scroll-behavior: smooth;
 }

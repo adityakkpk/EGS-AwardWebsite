@@ -2,11 +2,11 @@ export default function About() {
   return (
     <section
       id="about"
-      className="pt-10 bg-gradient-to-b from-blue-50/50 to-white"
+      className="pt-10 bg-gradient-to-b from-[#2f2607]/5 to-white"
     >
       <div className="max-w-screen-xl mx-auto px-4 py-12">
         <h1
-          className="text-4xl md:text-5xl font-bold mb-8 text-center text-[#4169E1] 
+          className="text-4xl md:text-5xl font-bold mb-8 text-center text-[#2f2607] 
                      animate-fade-in hover:scale-105 transition-transform duration-300"
         >
           About the Awards
@@ -14,7 +14,7 @@ export default function About() {
 
         <div className="space-y-6 px-4 sm:px-10">
           <p
-            className="text-lg leading-relaxed text-gray-600 animate-fade-in"
+            className="text-lg leading-relaxed text-[#241c07]/70 animate-fade-in"
             style={{ animationDelay: "200ms" }}
           >
             The International Business Innovation and Excellence Awards is a
@@ -26,7 +26,7 @@ export default function About() {
           </p>
 
           <p
-            className="text-lg leading-relaxed text-gray-600 animate-fade-in"
+            className="text-lg leading-relaxed text-[#241c07]/70 animate-fade-in"
             style={{ animationDelay: "400ms" }}
           >
             Organized by PLSPL Charitable Trust in association with Xclusive
@@ -41,11 +41,11 @@ export default function About() {
           <div
             className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl 
                         transition-all duration-500 transform hover:-translate-y-2
-                        border-2 border-blue-100 hover:border-[#4169E1]
+                        border-2 border-[#2f2607]/20 hover:border-[#2f2607]
                         animate-fade-in"
             style={{ animationDelay: "600ms" }}
           >
-            <h2 className="text-2xl font-semibold mb-6 text-[#4169E1]">
+            <h2 className="text-2xl font-semibold mb-6 text-[#2f2607]">
               Who Can Apply?
             </h2>
             <ul className="space-y-4">
@@ -56,12 +56,12 @@ export default function About() {
               ].map((item, index) => (
                 <li
                   key={index}
-                  className="flex items-center space-x-3 text-gray-700 
-                             hover:text-[#4169E1] transition-colors duration-300
+                  className="flex items-center space-x-3 text-[#241c07]/70 
+                             hover:text-[#2f2607] transition-colors duration-300
                              group"
                 >
                   <span
-                    className="h-2 w-2 bg-[#4169E1] rounded-full flex-shrink-0
+                    className="h-2 w-2 bg-[#2f2607] rounded-full flex-shrink-0
                                 group-hover:scale-150 transition-transform duration-300"
                   ></span>
                   <span>{item}</span>
@@ -73,11 +73,11 @@ export default function About() {
           <div
             className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl 
                         transition-all duration-500 transform hover:-translate-y-2
-                        border-2 border-blue-100 hover:border-[#4169E1]
+                        border-2 border-[#2f2607]/20 hover:border-[#2f2607]
                         animate-fade-in"
             style={{ animationDelay: "800ms" }}
           >
-            <h2 className="text-2xl font-semibold mb-6 text-[#4169E1]">
+            <h2 className="text-2xl font-semibold mb-6 text-[#2f2607]">
               Key Highlights
             </h2>
             <ul className="space-y-4">
@@ -89,12 +89,12 @@ export default function About() {
               ].map((item, index) => (
                 <li
                   key={index}
-                  className="flex items-center space-x-3 text-gray-700 
-                             hover:text-[#4169E1] transition-colors duration-300
+                  className="flex items-center space-x-3 text-[#241c07]/70 
+                             hover:text-[#2f2607] transition-colors duration-300
                              group"
                 >
                   <span
-                    className="h-2 w-2 bg-[#4169E1] rounded-full flex-shrink-0
+                    className="h-2 w-2 bg-[#2f2607] rounded-full flex-shrink-0
                                 group-hover:scale-150 transition-transform duration-300"
                   ></span>
                   <span>{item}</span>

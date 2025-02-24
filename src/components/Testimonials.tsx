@@ -27,11 +27,11 @@ const testimonials = [
 export default function Testimonials() {
   return (
     <section
-      className="pt-10 bg-blue-50 max-w-screen-xl mx-auto"
+      className="pt-10 bg-[#2f2607]/5 mx-auto"
       id="testimonials"
     >
-      <div className="container mx-auto px-4 py-16">
-        <h1 className="text-3xl font-bold mb-12 text-center text-[#4169E1] animate-fade-in">
+      <div className="max-w-screen-xl mx-auto px-4 py-16">
+        <h1 className="text-3xl font-bold mb-12 text-center text-[#2f2607] animate-fade-in">
           What People Say About Us
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -44,17 +44,17 @@ export default function Testimonials() {
               style={{ animationDelay: `${testimonial.id * 100}ms` }}
             >
               <div className="flex items-center mb-6">
-                <div className="bg-[#4169E1]/10 p-3 rounded-full mr-4">
-                  <User className="w-8 h-8 text-[#4169E1]" />
+                <div className="bg-[#2f2607]/10 p-3 rounded-full mr-4">
+                  <User className="w-8 h-8 text-[#2f2607]" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-lg text-[#4169E1]">
+                  <h3 className="font-bold text-lg text-[#2f2607]">
                     {testimonial.name}
                   </h3>
-                  <p className="text-blue-600/60">{testimonial.role}</p>
+                  <p className="text-[#241c07]/60">{testimonial.role}</p>
                 </div>
               </div>
-              <p className="text-gray-600 leading-relaxed italic">
+              <p className="text-[#241c07]/70 leading-relaxed italic">
                 "{testimonial.content}"
               </p>
             </div>
