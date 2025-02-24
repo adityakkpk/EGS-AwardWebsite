@@ -9,10 +9,10 @@ export default function Home() {
         style={{ backgroundSize: "cover", backgroundPosition: "center" }}
       >
         <div className="max-w-screen-xl mx-auto bg-[#7e7e7e88] p-10 py-12 rounded-xl">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+          <h1 className="text-2xl md:text-5xl font-bold mb-6 text-white">
             International Business Innovation and Excellence Awards 2025
           </h1>
-          <p className="text-xl mb-10 text-white">
+          <p className="text-sm md:text-xl mb-10 text-white">
             Celebrating global excellence in business, research, and innovation
           </p>
           <Link

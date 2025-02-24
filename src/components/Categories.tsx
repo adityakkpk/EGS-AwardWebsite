@@ -1,13 +1,51 @@
+"use client";
+
+import { useState } from "react";
+
 export default function Categories() {
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
   const categories = [
-    "Excellence in Business Innovation",
-    "Outstanding Industrialist of the Year",
-    "Breakthrough Research and Innovation",
-    "Sustainability and Environmental Impact",
-    "Excellence in Technology Development",
-    "Entrepreneur of the Year",
-    "Social Impact and CSR Leadership",
+    {
+      title: "Excellence in Business Innovation",
+      description:
+        "Recognizing companies that have implemented innovative business models, processes, or solutions that have significantly impacted their operations and market position.",
+    },
+    {
+      title: "Outstanding Industrialist of the Year",
+      description:
+        "Honoring individuals who have demonstrated exceptional leadership and contributed to industrial growth and development.",
+    },
+    {
+      title: "Breakthrough Research and Innovation",
+      description:
+        "Celebrating groundbreaking research initiatives and innovative solutions that address industry challenges or create new opportunities.",
+    },
+    {
+      title: "Sustainability and Environmental Impact",
+      description:
+        "Recognizing organizations that have shown exceptional commitment to environmental sustainability and responsible business practices.",
+    },
+    {
+      title: "Excellence in Technology Development",
+      description:
+        "Awarding technological innovations that have transformed business operations or created new possibilities in the industry.",
+    },
+    {
+      title: "Entrepreneur of the Year",
+      description:
+        "Celebrating visionary entrepreneurs who have demonstrated outstanding business acumen and success in their ventures.",
+    },
+    {
+      title: "Social Impact and CSR Leadership",
+      description:
+        "Honoring organizations that have made significant contributions to society through their CSR initiatives and social impact programs.",
+    },
   ];
+
+  const toggleAccordion = (index: number) => {
+    setActiveIndex(activeIndex === index ? null : index);
+  };
 
   return (
     <section id="categories" className="pt-10 max-w-screen-xl mx-auto">
@@ -18,26 +56,49 @@ export default function Categories() {
         >
           Award Categories
         </h1>
-        <div className="flex flex-col lg:flex-row gap-12">
+        <div className="flex flex-col mt-20 lg:flex-row gap-12">
           {/* Categories Section */}
           <div className="lg:w-1/2">
-            <div className="grid sm:grid-cols-2 lg:grid-cols-1 gap-2">
+            <div className="space-y-2">
               {categories.map((category, index) => (
                 <div
                   key={index}
-                  className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl 
-                           transform hover:-translate-y-1 transition-all duration-300
-                           border-2 border-[#2f2607]/20 hover:border-[#2f2607]
-                           animate-fade-in"
+                  className="animate-fade-in vbg-white rounded-lg shadow-lg overflow-hidden"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <h3 className="text-lg font-bold mb-2 text-[#2f2607]">
-                    {category}
-                  </h3>
-                  <p className="text-sm text-[#241c07]/70 leading-relaxed">
-                    Recognizing outstanding achievements and contributions in{" "}
-                    {category.toLowerCase()}.
-                  </p>
+                  <button
+                    onClick={() => toggleAccordion(index)}
+                    className="flex w-full justify-between rounded-lg bg-white px-4 py-4 text-left 
+                             text-lg font-bold text-[#2f2607] shadow-lg hover:shadow-xl
+                             border-2 border-[#2f2607]/20
+                             transition-all duration-300"
+                  >
+                    <span>{category.title}</span>
+                    <svg
+                      className={`w-5 h-5 transition-transform duration-300 ${
+                        activeIndex === index ? "rotate-180" : ""
+                      }`}
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <path d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  <div
+                    className={`grid transition-all duration-300 bg-white ${
+                      activeIndex === index
+                        ? "grid-rows-[1fr]"
+                        : "grid-rows-[0fr]"
+                    }`}
+                  >
+                    <div className="overflow-hidden">
+                      <div className="px-4 pt-4 pb-2 text-sm text-black">
+                        {category.description}
+                      </div>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
@@ -49,7 +110,7 @@ export default function Categories() {
               <img
                 src="/awards-ceremony.webp"
                 alt="Awards Ceremony"
-                className="w-full h-96 object-cover"
+                className="w-full h-64 object-cover"
               />
             </div>
             <div className="space-y-6">
