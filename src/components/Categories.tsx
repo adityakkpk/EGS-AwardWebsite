@@ -63,20 +63,18 @@ export default function Categories() {
               {categories.map((category, index) => (
                 <div
                   key={index}
-                  className="animate-fade-in vbg-white rounded-lg shadow-lg overflow-hidden"
+                  className="animate-fade-in overflow-hidden"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <button
                     onClick={() => toggleAccordion(index)}
-                    className="flex w-full justify-between rounded-lg bg-white px-4 py-4 text-left 
-                             text-lg font-bold text-[#2f2607] shadow-lg hover:shadow-xl
-                             border-2 border-[#2f2607]/20
+                    className="flex w-full justify-start items-center gap-5 px-4 py-4 text-left 
+                             text-lg font-bold text-[#2f2607]
                              transition-all duration-300"
                   >
-                    <span>{category.title}</span>
                     <svg
-                      className={`w-5 h-5 transition-transform duration-300 ${
-                        activeIndex === index ? "rotate-180" : ""
+                      className={`w-5 h-5 transition-transform duration-300 -rotate-90 ${
+                        activeIndex === index ? "-rotate-[270]" : ""
                       }`}
                       viewBox="0 0 24 24"
                       fill="none"
@@ -85,16 +83,17 @@ export default function Categories() {
                     >
                       <path d="M19 9l-7 7-7-7" />
                     </svg>
+                    <span>{category.title}</span>
                   </button>
                   <div
-                    className={`grid transition-all duration-300 bg-white ${
+                    className={`grid transition-all duration-300 ${
                       activeIndex === index
                         ? "grid-rows-[1fr]"
                         : "grid-rows-[0fr]"
                     }`}
                   >
                     <div className="overflow-hidden">
-                      <div className="px-4 pt-4 pb-2 text-sm text-black">
+                      <div className="px-4 pb-2 text-sm ml-10 text-black">
                         {category.description}
                       </div>
                     </div>
