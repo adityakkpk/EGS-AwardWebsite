@@ -40,7 +40,7 @@ export default function FAQ() {
 
   return (
     <section
-      className="pt-10 bg-gradient-to-b from-[#2f3070]/2 to-neutral-100"
+      className="pt-10"
       id="faq"
     >
       <div className="container mx-auto px-4 py-12 max-w-3xl">

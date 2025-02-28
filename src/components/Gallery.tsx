@@ -16,7 +16,7 @@ const galleryItems = [
 
 export default function Gallery() {
   return (
-    <section className="pt-10 bg-gradient-to-b from-[#2f2607]/5 to-[#F6E3DB] mx-auto" id="gallery">
+    <section className="pt-10 mx-auto" id="gallery">
       <div className="max-w-screen-xl mx-auto px-4 py-12">
         <h1 className="text-4xl md:text-5xl font-bold mb-10 text-center text-[#2f2607] 
                      animate-fade-in hover:scale-105 transition-transform duration-300">
