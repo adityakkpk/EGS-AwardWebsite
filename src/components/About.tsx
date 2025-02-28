@@ -2,7 +2,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="pt-10 bg-gradient-to-b from-[#2f2607]/5 to-white"
+      className="bg-gradient-to-b from-[#f8cdbb6f] to-red-100"
     >
       <div className="max-w-screen-xl mx-auto px-4 py-12">
         <h1

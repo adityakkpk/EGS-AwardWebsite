@@ -31,7 +31,8 @@ export default function Testimonials() {
       id="testimonials"
     >
       <div className="max-w-screen-xl mx-auto px-4 py-16">
-        <h1 className="text-3xl font-bold mb-12 text-center text-[#2f2607] animate-fade-in">
+      <h1 className="text-4xl md:text-5xl font-bold mb-10 text-center text-[#2f2607] 
+                     animate-fade-in hover:scale-105 transition-transform duration-300">
           What People Say About Us
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

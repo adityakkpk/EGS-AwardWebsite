@@ -8,13 +8,13 @@ import FAQ from "../components/FAQ";
 
 export default function Home() {
   return (
-    <main>
+    <>
       <Index />
       <About />
       <Categories />
       <Gallery />
       <Testimonials />
       <FAQ />
-    </main>
+    </>
   );
 }

@@ -44,7 +44,8 @@ export default function FAQ() {
       id="faq"
     >
       <div className="container mx-auto px-4 py-12 max-w-3xl">
-        <h1 className="text-3xl font-bold mb-10 text-center text-[#2f2607] animate-fade-in">
+      <h1 className="text-4xl md:text-5xl font-bold mb-10 text-center text-[#2f2607] 
+                     animate-fade-in hover:scale-105 transition-transform duration-300">
           Frequently Asked Questions
         </h1>
         <div className="space-y-4">

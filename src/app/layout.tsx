@@ -26,7 +26,7 @@ export default function RootLayout({
         className={`${arsenal.variable} font-arsenal antialiased overflow-x-hidden`}
       >
         <Nav />
-        <main className="">{children}</main>
+        <main className="bg-[#F6E3DB]">{children}</main>
         <Footer />
       </body>
     </html>
