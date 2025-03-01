@@ -80,7 +80,7 @@ export default function Nav() {
                   href={link.href}
                   className="px-3 py-2 rounded-md transition-all duration-300
                          relative group hover:text-[#BA9524] border-b w-full flex"
-                  onClick={() => setShowMenu(false)} // Optional: closes menu on link click
+                  onClick={() => setShowMenu(false)} 
                 >
                   {link.label}
                   <span
