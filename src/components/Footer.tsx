@@ -64,7 +64,7 @@ export default function Footer() {
                 },
                 { 
                   icon: MapPin, 
-                  content: "123 Business Avenue, New York, NY 10001",
+                  content: "Business Avenue, Muscat, Sultanate of Oman",
                   href: "#"
                 },
               ].map((item, index) => (
@@ -96,7 +96,7 @@ export default function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="transform hover:scale-110 text-blue-500 hover:text-blue-200 
+                  className="transform hover:scale-110 text-blue-300 hover:text-blue-200 
                            transition-all duration-300 opacity-80 hover:opacity-100
                            animate-fade-in"
                   style={{ animationDelay: `${index * 100}ms` }}

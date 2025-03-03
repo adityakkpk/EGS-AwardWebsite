@@ -3,6 +3,7 @@ import { Arsenal } from "next/font/google";
 import "./globals.css";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
+import { Toaster } from "react-hot-toast";
 
 const arsenal = Arsenal({
   weight: ['400', '700'],
@@ -26,7 +27,10 @@ export default function RootLayout({
         className={`${arsenal.variable} font-arsenal antialiased overflow-x-hidden`}
       >
         <Nav />
-        <main className="bg-[#F6E3DB]">{children}</main>
+        <main className="bg-[#F6E3DB]">
+          {children}
+          <Toaster position="top-right" />
+        </main>
         <Footer />
       </body>
     </html>

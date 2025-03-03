@@ -1,8 +1,8 @@
 "use client";
 
 import type React from "react";
-import Head from "next/head";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 export default function Nominate() {
   const [formData, setFormData] = useState({
@@ -20,6 +20,7 @@ export default function Nominate() {
   });
   const [supportingDoc, setSupportingDoc] = useState<File | null>(null);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -87,11 +88,11 @@ export default function Nominate() {
 
     // Achievements validation
     if (
-      formData.achievements.length < 250 ||
+      formData.achievements.length < 50 ||
       formData.achievements.length > 500
     ) {
       newErrors.achievements =
-        "Achievement description must be between 250-500 words";
+        "Achievement description must be between 50-500 words";
     }
 
     // Required fields validation
@@ -134,6 +135,8 @@ export default function Nominate() {
       const formInputData = new FormData();
       console.log(formData);
 
+      setIsSubmitting(true);
+
       // Append all form fields
       Object.entries(formData).forEach(([key, value]) => {
         formInputData.append(key, value);
@@ -150,7 +153,7 @@ export default function Nominate() {
       });
 
       if (response.ok) {
-        alert("Nomination submitted successfully!");
+        toast.success("Nomination submitted successfully!");
         setFormData({
           fullName: "",
           designation: "",
@@ -167,9 +170,12 @@ export default function Nominate() {
       } else {
         throw new Error("Failed to submit nomination");
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error submitting nomination:", error);
-      alert("Failed to submit nomination. Please try again.");
+      toast.error("Failed to submit nomination: ", error.message);
+      setIsSubmitting(false);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -185,7 +191,7 @@ export default function Nominate() {
         </div>
       </section>
 
-      <div className="max-w-4xl mx-auto -mt-10 px-4 mb-16">
+      <div className="max-w-4xl mx-auto -mt-10 px-4 pb-16">
         <div className="bg-white rounded-xl shadow-lg p-8 md:p-12">
           <h1 className="text-3xl font-bold mb-8 text-center text-[#2f2607]">
             Nomination Form
@@ -417,7 +423,7 @@ export default function Nominate() {
                 htmlFor="achievements"
                 className="block mb-2 text-[#2f2607] font-medium"
               >
-                Brief Description of Achievements (250-500 words)
+                Brief Description of Achievements (50-500 words)
               </label>
               <textarea
                 id="achievements"
@@ -513,6 +519,7 @@ export default function Nominate() {
                 className="w-full bg-[#2f2607] text-[#fdd660] px-6 py-4 rounded-lg 
                          hover:bg-[#463a0f] transition-colors duration-300 
                          font-medium text-lg"
+                disabled={isSubmitting}
               >
                 Submit Nomination
               </button>
