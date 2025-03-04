@@ -489,17 +489,18 @@ export default function Categories() {
         >
           Award Categories
         </h1>
-        <div className="flex flex-col lg:flex-row gap-4 lg:gap-8">
+        <div>
           {/* Left side - Accordion */}
           {/* <div className="w-full lg:w-1/2"> */}
           <div className="w-full">
             {categories.map((category) => (
-              <div key={category.id} className="mb-2">
+              <div key={category.id}>
                 <button
                   className={`text-left p-3 sm:p-4 font-semibold text-base sm:text-lg 
                   rounded-t-lg transition-colors duration-200
-                  border flex gap-2 items-center
-                  ${selectedCategory === category.id ? "bg-red-100" : ""}`}
+                  flex gap-2 items-center
+                  `}
+                  // ${selectedCategory === category.id ? "bg-red-100" : ""}
                   onClick={() => handleCategoryClick(category.id)}
                 >
                   <svg
@@ -527,16 +528,15 @@ export default function Categories() {
                     : "max-h-0 opacity-0"
                 }`}
                 >
-                  <div className="border-x border-b rounded-b-lg pl-10">
+                  <div className="border border-black rounded-b-lg ml-10 rounded">
                     {category.submenus.map((item) => (
                       <button
                         key={item.id}
-                        className={`w-full text-left py-1 px-4 text-sm sm:text-base
-                        hover:bg-red-200 border-b last:border-b-0 transition-colors duration-200 rounded flex items-center flex-wrap
+                        className={`w-full text-left py-1 px-4 text-sm sm:text-base border-b border-black last:border-b-0 transition-colors duration-200 flex items-center flex-wrap
                         `}
                         onClick={() => setSelectedItem(item)}
                       >
-                        <div className="font-bold w-[30%] min-w-fit">
+                        <div className="font-bold w-[30%] border-r border-black min-w-fit">
                           <span> · </span>
                           {item.name}
                         </div>
