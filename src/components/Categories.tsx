@@ -532,15 +532,15 @@ export default function Categories() {
                     {category.submenus.map((item) => (
                       <button
                         key={item.id}
-                        className={`w-full text-left py-1 px-4 text-sm sm:text-base border-b border-black last:border-b-0 transition-colors duration-200 flex items-center flex-wrap
+                        className={`w-full text-left px-4 text-sm sm:text-base border-b border-black last:border-b-0 transition-colors duration-200 flex items-center flex-wrap
                         `}
                         onClick={() => setSelectedItem(item)}
                       >
-                        <div className="font-bold w-[30%] border-r border-black min-w-fit">
+                        <div className="font-bold w-[40%] py-1 min-w-fit">
                           <span> · </span>
                           {item.name}
                         </div>
-                        <div className="text-gray-700 w-1/2 min-w-fit pl-3">
+                        <div className="text-gray-800 border-l py-1 border-black w-1/2 min-w-fit pl-6">
                           {item.description}
                         </div>
                       </button>
