@@ -943,162 +943,234 @@ export default function Categories() {
     setActiveCategory(activeCategory === categoryId ? null : categoryId);
   };
 
+  const bannerImage = "/award_banner.jpg";
+
+  const banner_style = {
+    backgroundImage: `url(${bannerImage})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    width: "100vw",
+  }
+
   return (
-    <section id="categories" className="pt-10 max-w-screen-xl mx-auto">
-      <div className="p-4 sm:p-8 w-full max-w-7xl mx-auto">
+    // <section id="categories" className="pt-10 max-w-screen-xl mx-auto">
+    //   <div className="p-4 sm:p-8 w-full max-w-7xl mx-auto">
+    //     <h1
+    //       className="text-4xl md:text-5xl font-bold mb-12 text-center text-[#2f2607]
+    //                  animate-fade-in hover:scale-105 transition-transform duration-300"
+    //     >
+    //       Award Categories
+    //     </h1>
+    //     <div>
+    //       {/* Left side - Accordion */}
+    //       {/* <div className="w-full lg:w-1/2"> */}
+    //       {/* <div className="w-full">
+    //         {categories.map((category) => (
+    //           <div key={category.id}>
+    //             <button
+    //               className={`text-left p-3 sm:p-4 font-extrabold text-base sm:text-lg md:text-xl text-[#1f1d10]
+    //               rounded-t-lg transition-colors duration-300
+    //               flex gap-2 items-center mt-1
+    //               ${selectedCategory === category.id ? "bg-rose-200" : ""}
+    //               `}
+    //               onClick={() => handleCategoryClick(category.id)}
+    //             >
+    //               <svg
+    //                 className={`w-5 h-5 transform transition-transform duration-300 -rotate-90
+    //                     ${
+    //                       selectedCategory === category.id
+    //                         ? "-rotate-[270]"
+    //                         : ""
+    //                     }`}
+    //                 viewBox="0 0 24 24"
+    //                 fill="none"
+    //                 stroke="currentColor"
+    //                 strokeWidth="2"
+    //               >
+    //                 <path d="M19 9l-7 7-7-7" />
+    //               </svg>
+    //               {category.name}
+    //             </button>
+
+    //             <div
+    //               className={`transition-all duration-300 ease-in-out overflow-hidden p-2 rounded-b-lg
+    //             ${
+    //               selectedCategory === category.id
+    //                 ? "max-h-[1000px] opacity-100"
+    //                 : "max-h-0 opacity-0"
+    //             }`}
+    //             >
+    //               <div className="border border-black rounded-b-lg ml-10 lg:w-[85%] rounded">
+    //                 {category.submenus.map((item) => (
+    //                   <button
+    //                     key={item.id}
+    //                     className={`w-full text-left px-4 text-sm sm:text-base border-b border-black last:border-b-0 transition-colors duration-200 flex items-center flex-wrap
+    //                     `}
+    //                     onClick={() => setSelectedItem(item)}
+    //                   >
+    //                     <div className="font-bold w-[45%] py-1 min-w-fit md:pl-5">
+    //                       <span> · </span>
+    //                       {item.name}
+    //                     </div>
+    //                     <div className="text-gray-800 lg:border-l py-1 border-black w-[500px] font-medium min-w-fit pl-6 md:pl-10">
+    //                       {item.description}
+    //                     </div>
+    //                   </button>
+    //                 ))}
+    //               </div>
+    //             </div>
+    //           </div>
+    //         ))}
+    //       </div> */}
+
+    //       {/* Right side - Item Details Card */}
+    //       {/* <div className="w-full lg:w-1/2">
+    //         <div
+    //           className={`transition-all duration-300 ease-in-out transform
+    //         ${
+    //           selectedItem
+    //             ? "translate-y-0 opacity-100"
+    //             : "translate-y-4 opacity-0 pointer-events-none"
+    //         }`}
+    //         >
+    //           {selectedItem && (
+    //             <div className="border rounded-lg lg:sticky lg:top-12">
+    //               <div className="rounded-xl overflow-hidden shadow-lg mb-3 sm:mb-4">
+    //                 <img
+    //                   src={selectedItem.image}
+    //                   alt="Awards Ceremony"
+    //                   className="w-full h-64 object-cover"
+    //                 />
+    //               </div>
+    //               <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">
+    //                 {selectedItem.name}
+    //               </h2>
+    //               <p className="text-sm sm:text-base text-gray-700">
+    //                 {selectedItem.description}
+    //               </p>
+    //               <div className="grid grid-cols-2 gap-4 mt-6">
+    //                 <div className="bg-white p-4 rounded-lg shadow border-2 border-[#2f2607]/20">
+    //                   <h4 className="font-bold text-[#2f2607]">Date</h4>
+    //                   <p className="text-[#241c07]/70">{selectedItem.date}</p>
+    //                 </div>
+    //                 <div className="bg-white p-4 rounded-lg shadow border-2 border-[#2f2607]/20">
+    //                   <h4 className="font-bold text-[#2f2607]">Venue</h4>
+    //                   <p className="text-[#241c07]/70">{selectedItem.venue}</p>
+    //                 </div>
+    //               </div>
+    //             </div>
+    //           )}
+    //         </div>
+    //       </div> */}
+    //     </div>
+    //     <div className="space-y-4 lg:px-40">
+    //       {categories.map((category) => (
+    //         <div
+    //           key={category.id}
+    //           className="border rounded-lg overflow-hidden shadow-sm"
+    //         >
+    //           <div
+    //             onClick={() => toggleCategory(category.id)}
+    //             className={`flex justify-between items-center p-4 cursor-pointer hover:bg-red-200/70 transition-colors
+    //                 ${activeCategory === category.id ? "bg-red-200/70" : ""}
+    //                 `}
+    //           >
+    //             <h2 className="text-2xl font-semibold text-[#000000]">
+    //               {category.name}
+    //             </h2>
+    //             {activeCategory === category.id ? (
+    //               <ChevronDown />
+    //             ) : (
+    //               <ChevronRight />
+    //             )}
+    //           </div>
+
+    //           {activeCategory === category.id && (
+    //             <div className="grid md:grid-cols-2 gap-4 p-4 bg-red-200/70">
+    //               {category.submenus.map((submenu) => (
+    //                 <div
+    //                   key={submenu.id}
+    //                   className="border border-red-200 p-4 rounded-md bg-white/20 hover:shadow-md transition-shadow"
+    //                 >
+    //                   <h3 className="font-bold text-lg mb-2 text-gray-800">
+    //                     {submenu.name}
+    //                   </h3>
+    //                   <p className="text-gray-600 mb-2">
+    //                     {submenu.description}
+    //                   </p>
+    //                   {/* <div className="text-sm text-gray-500">
+    //                       <p>Date: {submenu.date}</p>
+    //                       <p>Venue: {submenu.venue}</p>
+    //                     </div> */}
+    //                 </div>
+    //               ))}
+    //             </div>
+    //           )}
+    //         </div>
+    //       ))}
+    //     </div>
+    //   </div>
+    // </section>
+
+    <section id="categories" className="pt-10">
+      <div className="w-full">
         <h1
           className="text-4xl md:text-5xl font-bold mb-12 text-center text-[#2f2607] 
                      animate-fade-in hover:scale-105 transition-transform duration-300"
         >
           Award Categories
         </h1>
-        <div>
-          {/* Left side - Accordion */}
-          {/* <div className="w-full lg:w-1/2"> */}
-          {/* <div className="w-full">
-            {categories.map((category) => (
-              <div key={category.id}>
-                <button
-                  className={`text-left p-3 sm:p-4 font-extrabold text-base sm:text-lg md:text-xl text-[#1f1d10]
-                  rounded-t-lg transition-colors duration-300
-                  flex gap-2 items-center mt-1
-                  ${selectedCategory === category.id ? "bg-rose-200" : ""}
-                  `}
-                  onClick={() => handleCategoryClick(category.id)}
-                >
-                  <svg
-                    className={`w-5 h-5 transform transition-transform duration-300 -rotate-90
-                        ${
-                          selectedCategory === category.id
-                            ? "-rotate-[270]"
-                            : ""
-                        }`}
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <path d="M19 9l-7 7-7-7" />
-                  </svg>
-                  {category.name}
-                </button>
-
-                <div
-                  className={`transition-all duration-300 ease-in-out overflow-hidden p-2 rounded-b-lg
-                ${
-                  selectedCategory === category.id
-                    ? "max-h-[1000px] opacity-100"
-                    : "max-h-0 opacity-0"
-                }`}
-                >
-                  <div className="border border-black rounded-b-lg ml-10 lg:w-[85%] rounded">
-                    {category.submenus.map((item) => (
-                      <button
-                        key={item.id}
-                        className={`w-full text-left px-4 text-sm sm:text-base border-b border-black last:border-b-0 transition-colors duration-200 flex items-center flex-wrap
-                        `}
-                        onClick={() => setSelectedItem(item)}
-                      >
-                        <div className="font-bold w-[45%] py-1 min-w-fit md:pl-5">
-                          <span> · </span>
-                          {item.name}
-                        </div>
-                        <div className="text-gray-800 lg:border-l py-1 border-black w-[500px] font-medium min-w-fit pl-6 md:pl-10">
-                          {item.description}
-                        </div>
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div> */}
-
-          {/* Right side - Item Details Card */}
-          {/* <div className="w-full lg:w-1/2">
-            <div
-              className={`transition-all duration-300 ease-in-out transform
-            ${
-              selectedItem
-                ? "translate-y-0 opacity-100"
-                : "translate-y-4 opacity-0 pointer-events-none"
-            }`}
-            >
-              {selectedItem && (
-                <div className="border rounded-lg lg:sticky lg:top-12">
-                  <div className="rounded-xl overflow-hidden shadow-lg mb-3 sm:mb-4">
-                    <img
-                      src={selectedItem.image}
-                      alt="Awards Ceremony"
-                      className="w-full h-64 object-cover"
-                    />
-                  </div>
-                  <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">
-                    {selectedItem.name}
-                  </h2>
-                  <p className="text-sm sm:text-base text-gray-700">
-                    {selectedItem.description}
-                  </p>
-                  <div className="grid grid-cols-2 gap-4 mt-6">
-                    <div className="bg-white p-4 rounded-lg shadow border-2 border-[#2f2607]/20">
-                      <h4 className="font-bold text-[#2f2607]">Date</h4>
-                      <p className="text-[#241c07]/70">{selectedItem.date}</p>
-                    </div>
-                    <div className="bg-white p-4 rounded-lg shadow border-2 border-[#2f2607]/20">
-                      <h4 className="font-bold text-[#2f2607]">Venue</h4>
-                      <p className="text-[#241c07]/70">{selectedItem.venue}</p>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-          </div> */}
-        </div>
-        <div className="space-y-4 lg:px-40">
+        <div style={banner_style}>
+        <div className="space-y-4 bg-red-200/70 py-2">
           {categories.map((category) => (
             <div
               key={category.id}
-              className="border rounded-lg overflow-hidden shadow-sm"
+              className="border border-red-400 lg:mx-40 rounded-lg overflow-hidden shadow-sm"
             >
               <div
                 onClick={() => toggleCategory(category.id)}
-                className={`flex justify-between items-center p-4 cursor-pointer hover:bg-red-200/30 transition-colors
-                    ${activeCategory === category.id ? "bg-red-200/30" : ""}
-                    `}
+                className={`flex justify-between items-center p-4 cursor-pointer 
+        hover:bg-red-200 transition-all duration-300 ease-in-out
+        ${activeCategory === category.id ? "bg-red-200" : ""}
+        `}
               >
                 <h2 className="text-2xl font-semibold text-[#000000]">
                   {category.name}
                 </h2>
-                {activeCategory === category.id ? (
+                <div
+                  className={`transform transition-transform duration-300 ease 
+          ${activeCategory === category.id ? "rotate-180" : "rotate-0"}`}
+                >
                   <ChevronDown />
-                ) : (
-                  <ChevronRight />
-                )}
+                </div>
               </div>
 
-              {activeCategory === category.id && (
-                <div className="grid md:grid-cols-2 gap-4 p-4 bg-red-200/30">
-                  {category.submenus.map((submenu) => (
-                    <div
-                      key={submenu.id}
-                      className="border border-red-200 p-4 rounded-md bg-white/20 hover:shadow-md transition-shadow"
-                    >
-                      <h3 className="font-bold text-lg mb-2 text-gray-800">
-                        {submenu.name}
-                      </h3>
-                      <p className="text-gray-600 mb-2">
-                        {submenu.description}
-                      </p>
-                      {/* <div className="text-sm text-gray-500">
-                          <p>Date: {submenu.date}</p>
-                          <p>Venue: {submenu.venue}</p>
-                        </div> */}
-                    </div>
-                  ))}
-                </div>
-              )}
+              <div
+                className={`grid md:grid-cols-2 gap-4 transition-all duration-300 ease-in-out
+        ${
+          activeCategory === category.id
+            ? "grid-rows-[1fr] opacity-100 p-4"
+            : "grid-rows-[0fr] opacity-0 p-0 h-0"
+        }
+        bg-red-200 overflow-hidden`}
+              >
+                {category.submenus.map((submenu) => (
+                  <div
+                    key={submenu.id}
+                    className="border border-red-200 p-4 rounded-md bg-white/20 
+            hover:shadow-md transition-all duration-300 ease-in-out
+            hover:scale-[1.02] hover:bg-white/40"
+                  >
+                    <h3 className="font-bold text-lg mb-2 text-gray-800">
+                      {submenu.name}
+                    </h3>
+                    <p className="text-gray-600 mb-2">{submenu.description}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           ))}
+        </div>
         </div>
       </div>
     </section>
