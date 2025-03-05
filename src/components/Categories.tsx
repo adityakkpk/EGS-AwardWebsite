@@ -459,7 +459,7 @@ export default function Categories() {
     },
   ];
 
-  const [selectedCategory, setSelectedCategory] = useState<number | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<number | null>(1);
   const [selectedItem, setSelectedItem] = useState<{
     id: number;
     name: string;
@@ -496,15 +496,15 @@ export default function Categories() {
             {categories.map((category) => (
               <div key={category.id}>
                 <button
-                  className={`text-left p-3 sm:p-4 font-semibold text-base sm:text-lg 
-                  rounded-t-lg transition-colors duration-200
-                  flex gap-2 items-center
+                  className={`text-left p-3 sm:p-4 font-extrabold text-base sm:text-lg md:text-xl text-[#1f1d10]
+                  rounded-t-lg transition-colors duration-300
+                  flex gap-2 items-center mt-1
+                  ${selectedCategory === category.id ? "bg-rose-200" : ""}
                   `}
-                  // ${selectedCategory === category.id ? "bg-red-100" : ""}
                   onClick={() => handleCategoryClick(category.id)}
                 >
                   <svg
-                    className={`w-5 h-5 transform transition-transform duration-200 -rotate-90
+                    className={`w-5 h-5 transform transition-transform duration-300 -rotate-90
                         ${
                           selectedCategory === category.id
                             ? "-rotate-[270]"
@@ -521,14 +521,14 @@ export default function Categories() {
                 </button>
 
                 <div
-                  className={`transition-all duration-300 ease-in-out overflow-hidden
+                  className={`transition-all duration-300 ease-in-out overflow-hidden p-2 rounded-b-lg
                 ${
                   selectedCategory === category.id
                     ? "max-h-[1000px] opacity-100"
                     : "max-h-0 opacity-0"
                 }`}
                 >
-                  <div className="border border-black rounded-b-lg ml-10 rounded">
+                  <div className="border border-black rounded-b-lg ml-10 lg:w-[85%] rounded">
                     {category.submenus.map((item) => (
                       <button
                         key={item.id}
@@ -536,11 +536,11 @@ export default function Categories() {
                         `}
                         onClick={() => setSelectedItem(item)}
                       >
-                        <div className="font-bold w-[40%] py-1 min-w-fit">
+                        <div className="font-bold w-[45%] py-1 min-w-fit md:pl-5">
                           <span> · </span>
                           {item.name}
                         </div>
-                        <div className="text-gray-800 border-l py-1 border-black w-1/2 min-w-fit pl-6">
+                        <div className="text-gray-800 lg:border-l py-1 border-black w-[500px] font-medium min-w-fit pl-6 md:pl-10">
                           {item.description}
                         </div>
                       </button>
