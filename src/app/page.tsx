@@ -12,7 +12,7 @@ export default function Home() {
       <About />
       <Categories />
       <Gallery />
-      <Testimonials />
+      {/* <Testimonials /> */}
       <FAQ />
     </>
   );
