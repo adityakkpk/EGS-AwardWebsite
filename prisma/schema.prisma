@@ -9,12 +9,12 @@ generator client {
 }
 
 datasource db {
-  provider = "mongodb"
+  provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
 model Nomination {
-  id              String   @id @default(auto()) @map("_id") @db.ObjectId
+  id              Int      @id @default(autoincrement())
   fullName        String
   designation     String
   organization    String
@@ -23,9 +23,9 @@ model Nomination {
   email           String
   phone           String
   category        String
-  achievements    String
-  contributions   String
-  awards          String?
+  achievements    String   @db.Text
+  contributions   String   @db.Text
+  awards          String?  @db.Text
   supportingDocs  String?
   createdAt       DateTime @default(now())
 }
