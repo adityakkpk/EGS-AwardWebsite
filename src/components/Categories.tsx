@@ -1125,12 +1125,12 @@ export default function Categories() {
             {categories.map((category) => (
               <div
                 key={category.id}
-                className="border border-red-400 mx-5 lg:mx-40 rounded-lg overflow-hidden shadow-sm"
+                className="border border-orange-400 mx-5 lg:mx-40 rounded-lg overflow-hidden shadow-sm"
               >
                 <div
                   onClick={() => toggleCategory(category.id)}
                   className={`flex justify-between items-center p-3 cursor-pointer 
-                    hover:bg-red-300 transition-all duration-300 ease-in-out bg-red-100
+                    hover:bg-[#ffc5cb] transition-all duration-300 ease-in-out bg-[#fadadd]
                     ${activeCategory === category.id ? "bg-red-200" : ""}
                   `}
                 >
