@@ -23,7 +23,7 @@ export default function Nav() {
             { href: "./#about", label: "About" },
             { href: "./#categories", label: "Categories" },
             { href: "./#gallery", label: "Gallery" },
-            { href: "./#testimonials", label: "Testimonials" },
+            // { href: "./#testimonials", label: "Testimonials" },
             { href: "./#faq", label: "FAQ" },
             { href: "/nominate", label: "Nominate" },
           ].map((link) => (
@@ -71,7 +71,7 @@ export default function Nav() {
               { href: "./#about", label: "About" },
               { href: "./#categories", label: "Categories" },
               { href: "./#gallery", label: "Gallery" },
-              { href: "./#testimonials", label: "Testimonials" },
+              // { href: "./#testimonials", label: "Testimonials" },
               { href: "./#faq", label: "FAQ" },
               { href: "/nominate", label: "Nominate" },
             ].map((link) => (

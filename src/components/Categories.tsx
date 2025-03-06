@@ -481,7 +481,7 @@ export default function Categories() {
   //   }
   // };
 
-  const [activeCategory, setActiveCategory] = useState(1);
+  const [activeCategory, setActiveCategory] = useState(null);
 
   const categories = [
     {
@@ -1115,7 +1115,7 @@ export default function Categories() {
     <section id="categories" className="pt-10">
       <div className="w-full">
         <h1
-          className="text-4xl md:text-5xl font-bold mb-12 text-center text-[#2f2607] 
+          className="text-4xl md:text-5xl font-bold my-12 text-center text-[#2f2607] 
                      animate-fade-in hover:scale-105 transition-transform duration-300"
         >
           Award Categories

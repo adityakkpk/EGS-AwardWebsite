@@ -1,7 +1,7 @@
 import Image from "next/image"
 
 const galleryItems = [
-  { id: 1, src: "/award.jpg", alt: "Award Ceremony 2024", caption: "Award Ceremony 2024" },
+  { id: 1, src: "/awards-ceremony.webp", alt: "Award Ceremony 2024", caption: "Award Ceremony 2024" },
   {
     id: 2,
     src: "/img3.jpg",
