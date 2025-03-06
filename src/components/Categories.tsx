@@ -943,14 +943,14 @@ export default function Categories() {
     setActiveCategory(activeCategory === categoryId ? null : categoryId);
   };
 
-  const bannerImage = "/award_banner.jpg";
+  const bannerImage = "/award_banner_new.jpg";
 
   const banner_style = {
     backgroundImage: `url(${bannerImage})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
     width: "100vw",
-  }
+  };
 
   return (
     // <section id="categories" className="pt-10 max-w-screen-xl mx-auto">
@@ -1121,56 +1121,60 @@ export default function Categories() {
           Award Categories
         </h1>
         <div style={banner_style}>
-        <div className="space-y-4 bg-red-200/70 py-2">
-          {categories.map((category) => (
-            <div
-              key={category.id}
-              className="border border-red-400 lg:mx-40 rounded-lg overflow-hidden shadow-sm"
-            >
+          <div className="space-y-4 bg-gray-100/20 py-2">
+            {categories.map((category) => (
               <div
-                onClick={() => toggleCategory(category.id)}
-                className={`flex justify-between items-center p-4 cursor-pointer 
-        hover:bg-red-200 transition-all duration-300 ease-in-out
-        ${activeCategory === category.id ? "bg-red-200" : ""}
-        `}
+                key={category.id}
+                className="border border-red-400 mx-5 lg:mx-40 rounded-lg overflow-hidden shadow-sm"
               >
-                <h2 className="text-2xl font-semibold text-[#000000]">
-                  {category.name}
-                </h2>
                 <div
-                  className={`transform transition-transform duration-300 ease 
-          ${activeCategory === category.id ? "rotate-180" : "rotate-0"}`}
+                  onClick={() => toggleCategory(category.id)}
+                  className={`flex justify-between items-center p-3 cursor-pointer 
+                    hover:bg-red-300 transition-all duration-300 ease-in-out bg-red-100
+                    ${activeCategory === category.id ? "bg-red-200" : ""}
+                  `}
                 >
-                  <ChevronDown />
+                  <h2 className="text-2xl font-semibold text-[#000000]">
+                    {category.name}
+                  </h2>
+                  <div
+                    className={`transform transition-transform duration-300 ease 
+                    ${
+                      activeCategory === category.id ? "rotate-180" : "rotate-0"
+                    }`}
+                  >
+                    <ChevronDown />
+                  </div>
                 </div>
-              </div>
 
-              <div
-                className={`grid md:grid-cols-2 gap-4 transition-all duration-300 ease-in-out
+                <div
+                  className={`grid md:grid-cols-2 gap-4 transition-all duration-300 ease-in-out
         ${
           activeCategory === category.id
             ? "grid-rows-[1fr] opacity-100 p-4"
             : "grid-rows-[0fr] opacity-0 p-0 h-0"
         }
-        bg-red-200 overflow-hidden`}
-              >
-                {category.submenus.map((submenu) => (
-                  <div
-                    key={submenu.id}
-                    className="border border-red-200 p-4 rounded-md bg-white/20 
+        bg-red-100 overflow-hidden`}
+                >
+                  {category.submenus.map((submenu) => (
+                    <div
+                      key={submenu.id}
+                      className="border border-red-200 p-4 rounded-md bg-white/50 
             hover:shadow-md transition-all duration-300 ease-in-out
             hover:scale-[1.02] hover:bg-white/40"
-                  >
-                    <h3 className="font-bold text-lg mb-2 text-gray-800">
-                      {submenu.name}
-                    </h3>
-                    <p className="text-gray-600 mb-2">{submenu.description}</p>
-                  </div>
-                ))}
+                    >
+                      <h3 className="font-bold text-lg mb-2 text-gray-800">
+                        {submenu.name}
+                      </h3>
+                      <p className="text-gray-600 mb-2">
+                        {submenu.description}
+                      </p>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
