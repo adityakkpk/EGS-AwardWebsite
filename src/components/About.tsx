@@ -10,10 +10,10 @@ export default function About() {
         </h1>
 
         <div className="flex flex-wrap gap-5">
-          <div className="w-[50%]">
+          <div className="w-full lg:w-[50%]">
             <div className="space-y-8 px-4 sm:px-10">
               <p
-                className="text-lg font-semibold leading-relaxed text-[#241c07]/70 animate-fade-in"
+                className="text-lg font-semibold text-justify leading-relaxed text-[#241c07]/70 animate-fade-in"
                 style={{ animationDelay: "200ms" }}
               >
                 The International Business Innovation and Excellence Awards is a
@@ -26,7 +26,7 @@ export default function About() {
               </p>
 
               <p
-                className="text-lg font-semibold leading-relaxed text-[#241c07]/70 animate-fade-in"
+                className="text-lg font-semibold text-justify leading-relaxed text-[#241c07]/70 animate-fade-in"
                 style={{ animationDelay: "400ms" }}
               >
                 Organized by PLSPL Charitable Trust in association with Xclusive
@@ -37,7 +37,7 @@ export default function About() {
               </p>
             </div>
           </div>
-          <div className="w-[45%]">
+          <div className="w-full lg:w-[45%] min-w-96 sm:px-10">
             <img
               src="/awards-ceremony.avif"
               alt=""
@@ -46,7 +46,7 @@ export default function About() {
           </div>
         </div>
       </div>
-      <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto sm:px-10">
         <div
           className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl 
                         transition-all duration-500 transform hover:-translate-y-2

@@ -8,7 +8,7 @@ export default function Home() {
         className="text-center py-20 h-[500px] animate-fade-in bg-[url('/banner.jpg')]"
         style={{ backgroundSize: "cover", backgroundPosition: "center" }}
       >
-        <div className="max-w-screen-xl mx-auto bg-[#7e7e7e98] p-10 py-12 rounded-xl">
+        <div className="max-w-screen-xl mx-5 md:mx-auto bg-[#7e7e7e98] p-10 py-12 rounded-xl">
           <h1 className="text-2xl md:text-5xl font-bold mb-6 text-[#ffcf41]">
             International Business Innovation and Excellence Awards 2025
           </h1>

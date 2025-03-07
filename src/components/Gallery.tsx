@@ -10,7 +10,7 @@ const galleryItems = [
   },
   { id: 3, src: "/img5.jpg", alt: "Networking Event", caption: "Networking Event" },
   { id: 4, src: "/img4.jpg", alt: "Keynote Speaker", caption: "Keynote Speaker" },
-  { id: 5, src: "/img2.JPG", alt: "Award Trophy", caption: "Award Trophy" },
+  { id: 5, src: "/trophy.jpg", alt: "Award Trophy", caption: "Award Trophy" },
   { id: 6, src: "/img1.jpg", alt: "Panel Discussion", caption: "Panel Discussion" },
 ]
 
