@@ -1,0 +1,9 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=ibiea.delhicombatacademy.com/
+    - /bin/cp -R * $DEPLOYPATH
+    - cd $DEPLOYPATH
+    - export NODE_OPTIONS="--max_old_space_size=2048"
+    - /usr/local/bin/npm install --production --no-optional
+    - /usr/local/bin/npm run generate

@@ -1,17 +1,19 @@
 import { NextRequest, NextResponse } from "next/server"
 import { PrismaClient } from "@prisma/client"
-import { v2 as cloudinary } from "cloudinary"
+// import { v2 as cloudinary } from "cloudinary"
+import { writeFile } from 'fs/promises'
+import path from 'path'
 
 export const dynamic = 'force-dynamic'
 
 const prisma = new PrismaClient()
 
-// Configure Cloudinary
-cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET
-});
+// // Configure Cloudinary
+// cloudinary.config({
+//   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+//   api_key: process.env.CLOUDINARY_API_KEY,
+//   api_secret: process.env.CLOUDINARY_API_SECRET
+// });
 
 export async function POST(request: NextRequest) {
   try {
@@ -43,18 +45,36 @@ export async function POST(request: NextRequest) {
     }
 
     let supportingDocsUrl = null
-    if (file) {
-      // Convert file to base64
-      const bytes = await file.arrayBuffer()
-      const buffer = Buffer.from(bytes)
-      const base64File = `data:${file.type};base64,${buffer.toString('base64')}`
+    // if (file) {
+    //   // Convert file to base64
+    //   const bytes = await file.arrayBuffer()
+    //   const buffer = Buffer.from(bytes)
+    //   const base64File = `data:${file.type};base64,${buffer.toString('base64')}`
 
-      // Upload to Cloudinary
-      const uploadResponse = await cloudinary.uploader.upload(base64File, {
-        folder: "ibiea-nominations",
-        resource_type: "auto"
-      })
-      supportingDocsUrl = uploadResponse.secure_url
+    //   // Upload to Cloudinary
+    //   const uploadResponse = await cloudinary.uploader.upload(base64File, {
+    //     folder: "ibiea-nominations",
+    //     resource_type: "auto"
+    //   })
+    //   supportingDocsUrl = uploadResponse.secure_url
+    // }
+
+    if (file) {
+      // Generate unique filename
+      const timestamp = Date.now();
+      const originalName = file.name;
+      const extension = path.extname(originalName);
+      const filename = `${timestamp}${extension}`;
+      
+      // Create uploads directory if it doesn't exist
+      const uploadDir = path.join(process.cwd(), 'public', 'uploads');
+      try {
+        await writeFile(path.join(uploadDir, filename), Buffer.from(await file.arrayBuffer()));
+        supportingDocsUrl = `/uploads/${filename}`;
+      } catch (error) {
+        console.error('Error saving file:', error);
+        throw new Error('Failed to save file');
+      }
     }
 
     // Save to database

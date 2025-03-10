@@ -14,7 +14,7 @@ export default function Nav() {
           href="/"
           className="text-2xl font-bold hover:scale-105 hover:text-[#a09574] transition-transform duration-300 tracking-wide"
         >
-          IBIEA 2025
+          <img src="/header_logo.png" alt="logo" className="w-[100px]" />
         </Link>
 
         <ul className="hidden md:flex flex-wrap items-center text-white gap-3">

@@ -17,9 +17,10 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Logo and Description Section */}
           <div className="space-y-4">
-            <h3 className="text-2xl font-bold mb-4 tracking-wide animate-fade-in">
+            {/* <h3 className="text-2xl font-bold mb-4 tracking-wide animate-fade-in">
               International Business Innovation and Excellence Awards
-            </h3>
+            </h3> */}
+            <img src="/footer_logo.png" alt="logo" />
             <p className="text-blue-100 leading-relaxed animate-fade-in">
               Organized by PLSPL Charitable Trust in Association with Xclusive Oman
             </p>
