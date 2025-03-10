@@ -167,6 +167,7 @@ export default function Nominate() {
           contributions: "",
           awards: "",
         });
+        setSupportingDoc(null);
       } else {
         throw new Error("Failed to submit nomination");
       }
