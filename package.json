@@ -7,8 +7,7 @@
     "build": "prisma generate && next build",
     "start": "NODE_ENV=production node server.js",
     "lint": "next lint",
-    "generate": "node --max_old_space_size=2048 ./node_modules/prisma/build/index.js generate",
-    "postinstall": "cross-env NODE_OPTIONS=--max_old_space_size=2048 prisma generate"
+    "generate": "prisma generate"
   },
   "dependencies": {
     "@prisma/client": "^6.4.0",
